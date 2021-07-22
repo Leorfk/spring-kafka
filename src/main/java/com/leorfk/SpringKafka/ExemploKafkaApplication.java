@@ -1,9 +1,10 @@
-package com.leorfk.exemploKafka;
+package com.leorfk.SpringKafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.kafka.annotation.EnableKafka;
 
-
+@EnableKafka
 @SpringBootApplication
 public class ExemploKafkaApplication {
 
