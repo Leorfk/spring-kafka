@@ -2,6 +2,7 @@ package com.leorfk.SpringKafka;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,14 @@ import java.util.List;
 @Service
 public class KafkaConsumer {
 
-    @KafkaListener(topics = "${topic.name}")
+    @Value("${topic.name}")
+    private String topics;
+
+    public String[] getTopics(){
+        return new String[]{this.topics};
+    }
+
+    @KafkaListener(topics = "#{kafkaConsumer.getTopics()}")
     public void consume(ConsumerRecord<String, String> payload) {
         log.info("Tópico: {}", payload.topic());
         log.info("key: {}", payload.key());
