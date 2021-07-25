@@ -1,5 +1,6 @@
-package com.leorfk.SpringKafka;
+package com.leorfk.SpringKafka.controller;
 
+import com.leorfk.SpringKafka.KafkaProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
